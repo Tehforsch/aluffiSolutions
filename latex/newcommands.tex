@@ -1,0 +1,183 @@
+%%% Brackets etc.
+\newcommand{\bb}[1]{\left(#1\right)}                                        % (..)
+\newcommand{\bc}[1]{\left[#1\right]}                                        % [..]
+\newcommand{\bd}[1]{\left\langle#1\right\rangle}                            % <..>
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left|#1\right|}                                       % |..|
+\newcommand{\abssq}[1]{\abs{#1}^2}                                          % |..|^2
+\newcommand{\comm}[2]{\left[#1, #2\right]}                                  % [.., ..]
+\newcommand{\anticomm}[2]{\left\{#1, #2\right\}}                            % {.., ..}
+\newcommand{\bra}[1]{\ensuremath{\left\langle#1\right|}\xspace}             % <...|
+\newcommand{\ket}[1]{\ensuremath{\left|#1\right\rangle}\xspace}             % |...>
+\newcommand{\braket}[2]{\left\langle#1\middle|#2\right\rangle}              % <...|...>
+\newcommand{\ketbra}[2]{\left|#1\middle\rangle\middle\langle#2\right|}      % |...><...|
+\newcommand{\braketop}[3]{\left\langle#1\middle|#2\middle|#3\right\rangle}  % <...|...|...>
+
+%%% Integrals, Differentials
+\newcommand{\diff}[1]{\ensuremath{\frac{\mathrm{d}}{\mathrm{d}#1}}}         % d/dx
+\newcommand{\sdiff}[1]{\ensuremath{\frac{\mathrm{d}^2}{\mathrm{d}#1^2}}}    % d^2/dx^2
+\newcommand{\dd}[2]{\ensuremath{\frac{\mathrm{d}#1}{\mathrm{d}#2}}}         % df/dx
+\newcommand{\sdd}[2]{\ensuremath{\frac{\mathrm{d}^2#1}{\mathrm{d}#2^2}}}    % d^2f/dx^2
+\newcommand{\pdiff}[1]{\ensuremath{\frac{\partial}{\partial#1}}}            % partial d/dx
+\newcommand{\spdiff}[1]{\ensuremath{\frac{\partial^2}{\partial#1^2}}}       % partial d^2/dx^2
+\newcommand{\pp}[2]{\ensuremath{\frac{\partial#1}{\partial#2}}}             % partial df/dx
+\newcommand{\spp}[2]{\ensuremath{\frac{\partial^2#1}{\partial#2^2}}}        % partial d^2f/dx^2
+
+\newcommand{\integral}[3]{\int_{#1}^{#2} \mathrm{d}#3}                      % Integral - Non-italic differential
+\newcommand{\infintegral}[2]{\int_{-\infty}^{\infty} #2 \mathrm{d}#1}       % Integral over entire R
+\newcommand{\spheresurfaceintegral}[0]{\integral{0}{2\pi}{\phi}\integral{0}{\pi}{\theta}}
+\newcommand{\noi}[2]{{#1}_{\mathrm{#2}}}                                      % Non-italic subscript
+
+%%% Units
+\newcommand{\seconds}[1]{\ensuremath{\unit[#1]{s}}}
+\newcommand{\mseconds}[1]{\ensuremath{\unit[#1]{ms}}}
+\newcommand{\kgram}[1]{\ensuremath{\unit[#1]{kg}}}
+\newcommand{\gram}[1]{\ensuremath{\unit[#1]{g}}}
+\newcommand{\meter}[1]{\ensuremath{\unit[#1]{m}}}
+\newcommand{\mmeter}[1]{\ensuremath{\unit[#1]{mm}}}
+\newcommand{\mumeter}[1]{\ensuremath{\unit[#1]{\mu m}}}
+\newcommand{\nanometer}[1]{\ensuremath{\unit[#1]{nm}}}
+\newcommand{\volt}[1]{\ensuremath{\unit[#1]{V}}}
+\newcommand{\mvolt}[1]{\ensuremath{\unit[#1]{mV}}}
+\newcommand{\kelvin}[1]{\ensuremath{\unit[#1]{K}}}
+\newcommand{\mkelvin}[1]{\ensuremath{\unit[#1]{mK}}}
+\newcommand{\watt}[1]{\ensuremath{\unit[#1]{W}}}
+\newcommand{\mwatt}[1]{\ensuremath{\unit[#1]{mW}}}
+\newcommand{\invcm}[0]{\ensuremath{\mathrm{cm}^{-1}}}
+
+%%% Graphs
+
+\newcommand{\oneplot}[3]{
+\begin{figure}[htbp!]
+    \centering
+    #1
+    \captionsetup{width=.5\linewidth}
+    \caption{#2\label{fig:#3}}
+\end{figure}
+}
+
+\newcommand{\twoplot}[3]{
+\begin{figure}[htbp!]
+    \centering
+    #1
+    #2
+    \captionsetup{width=.98\linewidth}
+    \caption{#3}
+\end{figure}
+}
+
+\newcommand{\quadplot}[5]{
+\begin{figure}[htbp!]
+    \centering
+    #1
+    #2 \\
+    \vspace{0.2cm}
+    #3
+    #4
+    \captionsetup{width=.93\linewidth}
+    \caption{#5}
+\end{figure}
+}
+
+\newcommand{\sixplot}[7]{
+\begin{figure}[htbp!]
+    \centering
+    #1
+    #2 \\
+    \vspace{0.2cm}
+    #3
+    #4
+    \vspace{0.2cm}
+    #5
+    #6
+    \captionsetup{width=.93\linewidth}
+    \caption{#7}
+\end{figure}
+}
+\newcommand{\plotref}[4]{
+    \subcaptionbox{#3\label{fig:sub:#4}}[0.42\textwidth]{%
+    \centering%
+    \includegraphics{#1#2}
+    }
+}
+
+\newcommand{\plotnoref}[2]{
+    \subcaptionbox*{}[0.42\textwidth]{%
+    \centering%
+    \includegraphics{#1#2}
+    }
+}
+
+%%% References
+\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\figref}[1]{Figure~\ref{fig:#1}}
+\newcommand{\subfref}[1]{Fig.~\ref{fig:sub:#1}}
+\newcommand{\subfigref}[1]{Figure~\ref{fig:sub:#1}}
+\newcommand{\sref}[1]{Sec.~\ref{sec:#1}}
+\newcommand{\secref}[1]{Section~\ref{sec:#1}}
+\newcommand{\eref}[1]{Eq.~\ref{eq:#1}}
+\newcommand{\eqnref}[1]{Equation~\ref{eq:#1}}
+\newcommand{\tref}[1]{Tab.~\ref{tab:#1}}
+\newcommand{\tabref}[1]{Table~\ref{tab:#1}}
+
+%%% Constants
+\newcommand{\kB}[0]{k_{\mathrm{B}}}                                         % Boltzmann factor
+\newcommand{\Pe}[0]{\ensuremath{\mathrm{Pe}}}                               % Peclet number
+\newcommand{\Rey}[0]{\ensuremath{\mathrm{Re}}}                              % Reynolds number
+
+
+%%% Master thesis stuff
+\newcommand{\concentration}[0]{c(x, y)}
+\newcommand{\cinfty}[0]{c_{\infty}(x)}
+\newcommand{\cnaught}[0]{c_{\infty,0}(x, y)}
+\newcommand{\cbar}[0]{\bar{c}(x, y)}
+\newcommand{\potential}[0]{U(x, y)}
+
+\newcommand{\zfour}[4]{\ensuremath{z_{#1}^{#2}\; _{#3}^{#4}}}
+\newcommand{\pfour}[4]{\ensuremath{p_{#1}^{#2}\; _{#3}^{#4}}}
+
+\newcommand{\codename}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\fundef}[3]{\codename{#1} in \codename{#2}: #3 \\}
+\newcommand{\vardef}[3]{\codename{#1} in \codename{#2}: #3 \\}
+\newcommand{\moddef}[2]{\codename{#1}: #2 \\}
+
+\newcommand{\plain}[1]{\texttt{\detokenize{#1}}}
+
+\newcommand{\solutedensity}[0]{\rho_{\mathrm{s}}}
+\newcommand{\Dcat}[0]{D_{\mathrm{cat}}}
+
+% Expressions to include units in plots
+\newcommand{\lbmomentum}[0]{p_{\mathrm{LB}}}
+\newcommand{\lbforce}[0]{F_{\mathrm{LB}}}
+\newcommand{\lbtime}[0]{t_{\mathrm{LB}}}
+\newcommand{\lbvel}[0]{v_{\mathrm{LB}}}
+\newcommand{\lbx}[0]{x_{\mathrm{LB}}}
+\newcommand{\lby}[0]{y_{\mathrm{LB}}}
+\newcommand{\lbz}[0]{z_{\mathrm{LB}}}
+\newcommand{\normz}[0]{\bar{z}}
+\newcommand{\tmax}[0]{t_{\mathrm{max}}}
+
+% Wall thickness
+\newcommand{\wallthickness}{d}
+
+% Diffusion experiments
+\newcommand{\wallsourcestrength}[0]{\alpha}
+\newcommand{\sinkstrength}[0]{\lambda}
+\newcommand{\particledensity}[0]{\rho}
+
+% interface
+\newcommand{\gbr}[0]{g_{\mathrm{br}}}
+\newcommand{\gbrcrit}[0]{g_{\mathrm{br,crit}}}
+\newcommand{\bdensity}[0]{\rho_{b}}
+\newcommand{\rdensity}[0]{\rho_{r}}
+\newcommand{\bD}[0]{D_{\mathrm{b}}}
+\newcommand{\rD}[0]{D_{\mathrm{r}}}
+\newcommand{\taur}[0]{\tau_\mathrm{r}}
+\newcommand{\taub}[0]{\tau_\mathrm{b}}
+\newcommand{\etar}[0]{\eta_\mathrm{r}}
+\newcommand{\etab}[0]{\eta_\mathrm{b}}
+
+% unit vectors
+\newcommand{\unitx}[0]{\vec{e}_{\mathrm{x}}}
+\newcommand{\unity}[0]{\vec{e}_{\mathrm{y}}}
+\newcommand{\unitz}[0]{\vec{e}_{\mathrm{z}}}

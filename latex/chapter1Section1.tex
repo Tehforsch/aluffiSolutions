@@ -1,0 +1,14 @@
+\subsection{Naive set theory}
+\subsubsection{Ex. 1.2}
+
+Prove that if $\sim$ is a relation on a set $S$, then the corresponding family (the set of all equivalence classes) $\mathscr{P}_{\sim} := \set{\bc{a}, a \in S}
+$ is indeed a partition of $S$: that is, its elements are nonempty, disjoint and their union is $S$.
+
+\begin{proof}
+    The elements are nonempty since
+        $\forall \bc{a} \in \mathscr{P}_{\sim}$: Because of reflexivity: $a \sim a \Rightarrow a \in [a]$. 
+    
+    To prove that elements are disjoint, suppose there are two members $\bc{a}$ and $\bc{b}$ of $\mathscr{P}_{\sim}$ such that $\exists c: c \in \bc{a} \wedge c \in \bc{b}$. Then $\forall x \in \bc{a} \forall y \in \bc{b}: x \sim a \sim y$ and thus, by reflexivity, $x \sim y$. But then $x \in \bc{b}$ and $y \in \bc{a}$ and therefore $\bc{a} = \bc{b}$. 
+
+    The union of all elements is $S$ since $\forall s \in S: s \in \bc{s} \in \mathscr{P}_{\sim}$.
+\end{proof}
